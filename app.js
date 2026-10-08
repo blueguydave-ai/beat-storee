@@ -1,13 +1,14 @@
-// Replace this with your real WhatsApp number in international format, without + or spaces.
-// Example: 2348012345678
-const WHATSAPP_NUMBER = "234XXXXXXXXXX";
+const WHATSAPP_QR = "https://wa.me/qr/P2L26PQZGCZCH1";
 
 const button = document.getElementById("whatsapp");
 const beats = document.querySelectorAll(".beat");
 
+// WhatsApp QR links don't expose the phone number, so the page opens
+// your WhatsApp chat through the QR link. The selected beat is still
+// copied into the message area when supported by the browser.
 function openWhatsApp(beatName) {
-  const message = encodeURIComponent(beatName ? `${beatName} available?` : "Hi, I want to check beat availability.");
-  button.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+  button.href = WHATSAPP_QR;
+  button.dataset.beat = beatName || "";
 }
 
 openWhatsApp("");
