@@ -1,0 +1,40 @@
+name: Convert WAV previews to MP3
+
+on:
+  push:
+    branches:
+      - simple-beat-preview
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    if: ${{ !contains(github.event.head_commit.message, 'Convert WAV previews to MP3') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: simple-beat-preview
+
+      - name: Convert WAV files
+        run: |
+          shopt -s nullglob
+          for file in public/audio/*.wav public/audio/*.WAV; do
+            [ -f "$file" ] || continue
+            output="${file%.*}.mp3"
+            ffmpeg -y -i "$file" -codec:a libmp3lame -q:a 3 "$output"
+            rm "$file"
+          done
+
+      - name: Commit converted files
+        run: |
+          if git diff --quiet; then
+            echo "No WAV files to convert."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/audio
+          git commit -m "Convert WAV previews to MP3"
+          git push origin simple-beat-preview
