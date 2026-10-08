@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Preview beats and check availability." />
+  <title>Beat Preview</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">WAYTOOJAYY</p>
+      <h1>Choose a beat.</h1>
+      <p class="sub">Preview the beats below, then check availability on WhatsApp.</p>
+    </section>
+
+    <section class="steps" aria-label="Buying steps">
+      <div><span>01</span><p>Select beat</p></div>
+      <div><span>02</span><p>Check availability</p></div>
+      <div><span>03</span><p>If available, choose licence</p></div>
+      <div><span>04</span><p>Pay via Paystack or Selar</p></div>
+    </section>
+
+    <section class="beats" aria-label="Beat previews">
+      <div class="beat" data-name="soul">
+        <div class="beat-info"><span class="number">01</span><h2>soul</h2></div>
+        <audio controls preload="none" src="./public/audio/soul.mp3"></audio>
+      </div>
+      <div class="beat" data-name="somewhere">
+        <div class="beat-info"><span class="number">02</span><h2>somewhere</h2></div>
+        <audio controls preload="none" src="./public/audio/somewhere.mp3"></audio>
+      </div>
+      <div class="beat" data-name="driims">
+        <div class="beat-info"><span class="number">03</span><h2>driims</h2></div>
+        <audio controls preload="none" src="./public/audio/driims.mp3"></audio>
+      </div>
+      <div class="beat" data-name="cool n' right">
+        <div class="beat-info"><span class="number">04</span><h2>cool n' right</h2></div>
+        <audio controls preload="none" src="./public/audio/cool%20n'%20right.mp3"></audio>
+      </div>
+      <div class="beat" data-name="2:41">
+        <div class="beat-info"><span class="number">05</span><h2>2:41</h2></div>
+        <audio controls preload="none" src="./public/audio/2%3A41.mp3"></audio>
+      </div>
+    </section>
+
+    <section class="contact">
+      <a id="whatsapp" class="whatsapp" href="#" target="_blank" rel="noopener">
+        Check availability on WhatsApp
+      </a>
+      <p>Just text the name of the beat, e.g. <strong>“driims available?”</strong></p>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
